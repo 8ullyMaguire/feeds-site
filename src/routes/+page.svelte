@@ -12,6 +12,10 @@
 <svelte:head>
   <title>{page?.title ?? 'Feeds'} — feeds de Bluesky</title>
   <meta name="description" content={page?.tagline ?? 'Feeds curados de la lista Leftist'} />
+  <meta property="og:title" content={page?.title ?? 'Feeds'} />
+  <meta property="og:description" content={page?.tagline ?? ''} />
+  <meta property="og:image" content="https://leftist.polarisocial.xyz/og/leftist-24h.png" />
+  <meta name="twitter:card" content="summary_large_image" />
 </svelte:head>
 
 <section class="max-w-3xl">
@@ -72,6 +76,26 @@
     {/each}
   </div>
 </section>
+
+{#if page?.community_feeds?.length}
+  <section class="mt-12">
+    <h2 class="text-sm font-semibold uppercase tracking-widest text-neutral-500">{page.community_title ?? 'Otros feeds'}</h2>
+    <p class="mt-2 max-w-2xl text-sm text-neutral-500">{page.community_note ?? ''}</p>
+    <ul class="mt-4 divide-y divide-neutral-800 rounded-2xl border border-neutral-800">
+      {#each page.community_feeds as f (f.handle + f.rkey)}
+        <li class="p-4">
+          <div class="flex flex-wrap items-baseline gap-x-3">
+            <a class="font-medium text-neutral-100 hover:underline"
+               href="https://bsky.app/profile/{f.handle}/feed/{f.rkey}">{f.name}</a>
+            <span class="font-mono text-xs text-neutral-500">@{f.handle}</span>
+            <span class="text-[11px] uppercase tracking-wide text-neutral-600">{f.lang}</span>
+          </div>
+          <p class="mt-1 text-sm text-neutral-400">{f.why}</p>
+        </li>
+      {/each}
+    </ul>
+  </section>
+{/if}
 
 {#if page?.faq?.length}
   <section class="mt-12">

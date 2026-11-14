@@ -7,6 +7,12 @@
 <svelte:head>
   <title>{f.name} — feed</title>
   <meta name="description" content={f.description} />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content={f.name} />
+  <meta property="og:description" content={f.description} />
+  <meta property="og:image" content="https://leftist.polarisocial.xyz/og/{f.rkey}.png" />
+  <meta property="og:url" content="https://leftist.polarisocial.xyz/feed/{f.rkey}" />
+  <meta name="twitter:card" content="summary_large_image" />
 </svelte:head>
 
 <a class="text-xs text-neutral-500 hover:text-neutral-300" href="/feeds">← Catálogo</a>

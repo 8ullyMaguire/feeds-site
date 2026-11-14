@@ -39,7 +39,8 @@ export type SitePage = {
   faq_title?: string;
   faq?: { q: string; a: string }[];
   community_title?: string;
-  community_feeds?: { name: string; url: string; description?: string }[];
+  community_feeds?: { name: string; handle: string; rkey: string; why: string; lang: string }[];
+  community_note?: string;
   labels: Record<string, string>;
   repo?: string;
   github?: string;
@@ -64,3 +65,56 @@ export const getFeeds = (top = 3) =>
     `/feeds.json?top=${top}`
   );
 export const getFeed = (rkey: string) => getJson<FeedMeta>(`/feed/${rkey}.json`);
+
+export type GuideBlock =
+  | { type: 'p'; text: string }
+  | { type: 'steps'; items: string[] }
+  | { type: 'bullets'; items: string[] }
+  | { type: 'code'; text: string }
+  | { type: 'table'; rows: string[][] };
+
+export type GuideSection = { id: string; h: string; blocks: GuideBlock[] };
+export type Guide = {
+  title: string;
+  lede: string;
+  toc_title?: string;
+  sections: GuideSection[];
+  note?: string;
+  back?: string;
+};
+
+export type RisingPost = {
+  uri: string;
+  author: string;
+  text: string;
+  likes: number;
+  reposts: number;
+  delta_likes: number;
+  delta_reposts: number;
+  board: string | null;
+  url: string;
+};
+export type Rising = {
+  generated_at: string;
+  window_hours: number;
+  min_span_hours: number;
+  status?: string;
+  count: number;
+  posts: RisingPost[];
+  authors: { handle: string; delta_likes: number; posts: number; url: string }[];
+};
+
+export const getGuide = () => getJson<{ page: { guide: Guide } }>('/site.json').then((d) => d.page.guide);
+export const getRising = () => getJson<Rising>('/rising.json', 8000);
+
+export type SuggestionBox = {
+  count: number;
+  accepted: { handle: string; why: string; lang: string }[];
+  pending: number;
+  bar: string[];
+};
+
+export const suggestionBox = () =>
+  getJson<SuggestionBox>('/suggestions.json').catch(
+    () => ({ count: 0, accepted: [], pending: 0, bar: [] }) as SuggestionBox
+  );

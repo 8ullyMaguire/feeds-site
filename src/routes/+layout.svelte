@@ -14,6 +14,7 @@
       <a class="hover:text-neutral-100" href="/feeds">Feeds</a>
       <a class="hover:text-neutral-100" href="/rising">Subiendo</a>
       <a class="hover:text-neutral-100" href="/guia">Guía</a>
+      <a class="hover:text-neutral-100" href="/sugerencias">Proponer</a>
       <a class="hover:text-neutral-100" href="/en">English</a>
       <a class="hover:text-neutral-100" rel="me" href="https://bsky.app/profile/{handle}">Bluesky</a>
     </nav>
