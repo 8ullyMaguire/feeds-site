@@ -1,0 +1,11 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-ink: #0b0b0d;
+  --color-paper: #f7f4ef;
+  --color-accent: #e0483a;
+}
+
+html { color-scheme: dark; }
+body { font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif; }
+.prose-lede { font-size: 1.125rem; line-height: 1.7; }
