@@ -49,7 +49,7 @@
         <p class="mt-1 text-xs text-neutral-600">Una frase basta. Sin esto no se revisa.</p>
       </div>
       <div class="flex items-center gap-3">
-        <select name="lang" class="rounded-xl border border-neutral-800 bg-neutral-950 px-3 py-2 text-sm text-neutral-300">
+        <select aria-label="Language" name="lang" class="rounded-xl border border-neutral-800 bg-neutral-950 px-3 py-2 text-sm text-neutral-300">
           <option value="es">Escribe en español</option>
           <option value="en">Writes in English</option>
         </select>
