@@ -11,7 +11,9 @@
   });
 </script>
 
-<svelte:head><title>Feeds — catálogo</title></svelte:head>
+<svelte:head><title>Feeds — catálogo</title>
+  <meta name="description" content={`Los ${data?.count ?? 11} feeds curados de la lista Leftist, agrupados por idioma: qué pregunta responde cada uno, su ventana y su listón.`} />
+</svelte:head>
 
 <h1 class="text-2xl font-semibold tracking-tight">Catálogo</h1>
 <p class="mt-2 text-sm text-neutral-400">
