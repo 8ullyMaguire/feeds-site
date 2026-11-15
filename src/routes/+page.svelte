@@ -66,7 +66,13 @@
             {#each f.top as p (p.uri)}
               <li class="truncate">
                 <span class="font-mono text-neutral-600">{compact(p.likes)}♥</span>
-                <a class="hover:text-neutral-300" href={p.url}>{p.text}</a>
+                {#if p.text?.trim()}
+                  <a class="hover:text-neutral-300" href={p.url}>{p.text}</a>
+                {:else}
+                  <!-- An image-only or deleted post has no text, and the anchor rendered empty: axe link-name, and nothing for a
+                       screen reader to announce. Say what the link is. -->
+                  <a class="hover:text-neutral-300" href={p.url} aria-label="Ver el post de {p.author}">ver el post</a>
+                {/if}
               </li>
             {/each}
           </ul>
