@@ -36,7 +36,7 @@
 {#if page?.how?.length}
   <section class="mt-12">
     <h2 class="text-sm font-semibold uppercase tracking-widest text-neutral-500">{page.how_title ?? 'Cómo funciona'}</h2>
-    <ol class="mt-4 grid gap-3 sm:grid-cols-2">
+    <ol class="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
       {#each page.how as step, i}
         <li class="rounded-xl border border-neutral-800 bg-neutral-900/40 p-4 text-sm text-neutral-300">
           <span class="mr-2 font-mono text-xs text-neutral-500">{String(i + 1).padStart(2, '0')}</span>{step}
@@ -51,7 +51,7 @@
     <h2 class="text-sm font-semibold uppercase tracking-widest text-neutral-500">{page?.feeds_title ?? 'Los feeds'}</h2>
     <a class="text-xs text-neutral-500 hover:text-neutral-300" href="/feeds">Todos</a>
   </div>
-  <div class="mt-4 grid gap-4 sm:grid-cols-2">
+  <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
     {#each feeds as f (f.rkey)}
       <article class="rounded-2xl border border-neutral-800 bg-neutral-900/40 p-5">
         <div class="flex items-start justify-between gap-3">
@@ -60,7 +60,7 @@
             {f.language} · {win(f, 'es')}
           </span>
         </div>
-        <p class="mt-2 text-sm leading-relaxed text-neutral-400">{f.description.split('Todos los feeds')[0]}</p>
+        <p class="mt-2 text-sm leading-relaxed text-neutral-400 break-words">{f.description.split('Todos los feeds')[0]}</p>
         {#if f.top?.length}
           <ul class="mt-3 space-y-1.5 text-xs text-neutral-500">
             {#each f.top as p (p.uri)}
