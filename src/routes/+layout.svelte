@@ -12,6 +12,7 @@
     </a>
     <nav class="flex flex-wrap items-center gap-4 text-sm text-neutral-400">
       <a class="hover:text-neutral-100" href="/feeds">Feeds</a>
+      <a class="hover:text-neutral-100" href="/directorio">Directorio</a>
       <a class="hover:text-neutral-100" href="/rising">Subiendo</a>
       <a class="hover:text-neutral-100" href="/guia">Guía</a>
       <a class="hover:text-neutral-100" href="/sugerencias">Proponer</a>
@@ -32,6 +33,7 @@
     <span class="flex gap-4">
       {#if site?.page?.repo}<a class="hover:text-neutral-300" href={site.page.repo}>Código (AGPL-3.0)</a>{/if}
       <a class="hover:text-neutral-300" href="/feeds.json">feeds.json</a>
+      <a class="hover:text-neutral-300" href="/directory.json">directory.json</a>
       <a class="hover:text-neutral-300" href="/feeds.opml">OPML</a>
     </span>
   </footer>

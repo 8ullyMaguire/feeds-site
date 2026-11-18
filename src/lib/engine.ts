@@ -2,7 +2,7 @@
  * The engine (Python) owns the data: feed definitions, board sizes, top posts and
  * the page copy. This app renders it. One source of truth, two faces.
  */
-const BASE = process.env.ENGINE_URL ?? 'http://127.0.0.1:8004';
+export const BASE = process.env.ENGINE_URL ?? 'http://127.0.0.1:8004';
 
 export type FeedMeta = {
   rkey: string;
