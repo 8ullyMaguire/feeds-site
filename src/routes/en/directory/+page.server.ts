@@ -1,12 +1,6 @@
-import { getDirectory, type Order } from '$lib/directory';
+import { redirect } from '@sveltejs/kit';
 
-export async function load({ url }) {
-  const order = (url.searchParams.get('order') ?? 'popular') as Order;
-  const kind = url.searchParams.get('kind') ?? 'all';
-  try {
-    const data = await getDirectory(order, kind);
-    return { items: data.items, order: data.order, count: data.count, kind };
-  } catch {
-    return { items: [], order, kind, count: 0, engineDown: true };
-  }
+/** The English directory is now the default at /directory. */
+export function load({ url }) {
+  redirect(308, '/directory' + url.search);
 }

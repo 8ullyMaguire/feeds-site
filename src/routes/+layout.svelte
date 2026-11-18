@@ -12,7 +12,7 @@
     </a>
     <nav class="flex flex-wrap items-center gap-4 text-sm text-neutral-400">
       <a class="hover:text-neutral-100" href="/feeds">Feeds</a>
-      <a class="hover:text-neutral-100" href="/directorio">Directorio</a>
+      <a class="hover:text-neutral-100" href="/directory">Directory</a>
       <a class="hover:text-neutral-100" href="/rising">Subiendo</a>
       <a class="hover:text-neutral-100" href="/guia">Guía</a>
       <a class="hover:text-neutral-100" href="/sugerencias">Proponer</a>
